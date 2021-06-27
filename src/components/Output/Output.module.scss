@@ -10,8 +10,8 @@
   border: 1px solid $grey;
   border-radius: $border-radius-default;
   font-size: 1rem;
-  padding-bottom: $spacing-y;
-  padding-top: $spacing-y;
+  padding: 1.25rem;
+  text-align: left;
 
   @media (min-width: $breakpoint-md) {
     font-size: 1.25rem;

@@ -9,7 +9,9 @@ interface OutputProps {
 const Output: React.FC<OutputProps> = ({ value }) => (
   <>
     <h2 className={styles.Output__h2}>Output</h2>
-    <pre className={styles.Output}>{value?.length && <p>{value}</p>}</pre>
+    <pre className={styles.Output} data-testid="output">
+      {value?.length && value}
+    </pre>
   </>
 );
 

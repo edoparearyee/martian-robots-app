@@ -9,3 +9,12 @@
   font-size: $font-size-h2;
   margin-bottom: $spacing-y;
 }
+
+.Input__errorMessage {
+  color: $red;
+  padding-top: $spacing-y;
+}
+
+.Input__label--error {
+  border-color: $red;
+}
