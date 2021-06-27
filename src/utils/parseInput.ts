@@ -33,14 +33,22 @@ export const parseInput = (
   };
 };
 
-const pairArrItems = <T>(current: T[][], _: T, i: number, arr: T[]): T[][] => {
+export const pairArrItems = <T>(
+  current: T[][],
+  _: T,
+  i: number,
+  arr: T[],
+): T[][] => {
   if (i % 2 === 0) {
     current.push(arr.slice(i, i + 2));
   }
   return current;
 };
 
-const mapCommands = ([posStr, commandsStr]: string[]): RobotInstruction => {
+export const mapCommands = ([
+  posStr,
+  commandsStr,
+]: string[]): RobotInstruction => {
   const [x, y, orientation] = posStr.split(' ');
 
   const startingPos: Position = {
@@ -49,7 +57,7 @@ const mapCommands = ([posStr, commandsStr]: string[]): RobotInstruction => {
     orientation: orientation as Orientation,
   };
 
-  const commands: Commands = commandsStr.split('') as Commands;
+  const commands = commandsStr.split('') as Commands;
 
   return {
     startingPos,
