@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-
+import classNames from 'classnames';
 import Button from '../Button/Button';
 import TextArea from '../TextArea/TextArea';
 
@@ -18,7 +18,7 @@ const Form: React.FC<InputProps> = ({ onSubmit, onChange, onReset, error }) => (
       Enter instructions
     </label>
     <TextArea
-      className={styles['Input__label--error']}
+      className={classNames({ [styles['Input__label--error']]: error })}
       id="instructions"
       name="instructions"
       autoFocus
@@ -30,7 +30,7 @@ const Form: React.FC<InputProps> = ({ onSubmit, onChange, onReset, error }) => (
         Clear
       </Button>
     </div>
-    {error && (
+    {error && error.length && (
       <div
         className={styles.Input__errorMessage}
         role="alert"
