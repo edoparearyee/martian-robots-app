@@ -1,4 +1,4 @@
-import { RobotInstructions } from "./robot";
+import { RobotInstructions } from './robot';
 
 export interface GridSizeAndRobotInstructions {
   gridSize: GridSize;
@@ -6,6 +6,6 @@ export interface GridSizeAndRobotInstructions {
 }
 
 export interface GridSize {
-  x: number,
-  y: number
+  x: number;
+  y: number;
 }

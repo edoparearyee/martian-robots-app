@@ -6,10 +6,10 @@ import Input from './components/Input/Input';
 import Output from './components/Output/Output';
 
 const App: React.FC = () => {
-  const [output, setOutput] = useState<string>();
+  const [output] = useState<string>();
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     console.log(e);
-  }
+  };
 
   return (
     <main className={styles.App}>
@@ -20,7 +20,7 @@ const App: React.FC = () => {
             <Input onSubmit={onSubmit} />
           </Col>
           <Col sm={6}>
-            <Output value={output}/>
+            <Output value={output} />
           </Col>
         </Row>
       </Container>

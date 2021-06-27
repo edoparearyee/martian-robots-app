@@ -4,22 +4,24 @@ import {
   RobotInstruction,
   RobotInstructions,
   Orientation,
-  Commands
+  Commands,
 } from '../models/robot';
 
-export const parseInput = (input: string): GridSizeAndRobotInstructions | null => {
+export const parseInput = (
+  input: string,
+): GridSizeAndRobotInstructions | null => {
   const lines = input
     .split('\n')
-    .map(l => l.trim())
-    .filter(l => l.length);
+    .map((l) => l.trim())
+    .filter((l) => l.length);
 
   if (!lines.length) return null;
 
   const [x, y] = (lines.shift() as string)
     .split(' ')
-    .map(i => parseInt(i, 10));
+    .map((i) => parseInt(i, 10));
 
-  const gridSize: GridSize = { x, y }
+  const gridSize: GridSize = { x, y };
 
   const robotInstructions: RobotInstructions = lines
     .reduce<string[][]>(pairArrItems, [])
@@ -27,16 +29,16 @@ export const parseInput = (input: string): GridSizeAndRobotInstructions | null =
 
   return {
     gridSize,
-    robotInstructions
-  }
-}
+    robotInstructions,
+  };
+};
 
 const pairArrItems = <T>(current: T[][], _: T, i: number, arr: T[]): T[][] => {
   if (i % 2 === 0) {
     current.push(arr.slice(i, i + 2));
   }
   return current;
-}
+};
 
 const mapCommands = ([posStr, commandsStr]: string[]): RobotInstruction => {
   const [x, y, orientation] = posStr.split(' ');
@@ -44,13 +46,13 @@ const mapCommands = ([posStr, commandsStr]: string[]): RobotInstruction => {
   const startingPos: Position = {
     x: parseInt(x, 10),
     y: parseInt(y, 10),
-    orientation: orientation as Orientation
-  }
+    orientation: orientation as Orientation,
+  };
 
   const commands: Commands = commandsStr.split('') as Commands;
 
   return {
     startingPos,
-    commands
-  }
-}
+    commands,
+  };
+};

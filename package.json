@@ -6,7 +6,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "yarn stylelint && yarn eslint && yarn prettier",
+    "lint:fix": "yarn stylelint --fix && yarn eslint --fix && yarn prettier --write",
+    "eslint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "stylelint": "stylelint --syntax scss \"src/**/*.{css,scss}\"",
+    "prettier": "prettier --config .prettierrc -l \"src/**/*.{ts,tsx,js,json,css,scss}\""
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -22,14 +27,32 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "lint-staged": "^11.0.0",
     "node-sass": "^5.0.0",
+    "prettier": "^2.3.2",
     "react-scripts": "4.0.3",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^3.19.0",
     "typescript": "^4.1.2"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "src/**/*.{css,scss}": [
+      "stylelint --syntax scss --fix"
+    ],
+    "src/**/*.{ts,tsx,js,jsx,json,css,scss}": [
+      "prettier --config .prettierrc --write"
     ]
   },
   "browserslist": {

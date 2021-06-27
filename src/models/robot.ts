@@ -9,7 +9,7 @@ export interface Position {
   x: number;
   y: number;
   orientation: Orientation;
-};
+}
 
 export type Command = 'L' | 'R' | 'F';
 export type Commands = Command[];
