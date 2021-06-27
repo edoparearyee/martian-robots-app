@@ -1,0 +1,11 @@
+@import "../../scss/variables";
+
+.Input {
+  margin-bottom: $spacing-y;
+}
+
+.Input__label  {
+  display: block;
+  font-size: $font-size-h2;
+  margin-bottom: $spacing-y;
+}

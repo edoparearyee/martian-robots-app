@@ -1,7 +1,12 @@
+@import "./scss/variables";
+
 .App {
+  padding-bottom: $spacing-y;
+  padding-top: $spacing-y;
   text-align: center;
 }
 
 .App__h1 {
-  font-size: 2rem;
+  font-size: $font-size-h1;
+  margin-bottom: $spacing-y;
 }

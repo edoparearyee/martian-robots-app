@@ -1,0 +1,20 @@
+@import "../../scss/variables";
+
+.Output__h2 {
+  font-size: $font-size-h2;
+  margin-bottom: $spacing-y;
+  font-weight: 400;
+}
+
+.Output {
+  border: 1px solid $grey;
+  border-radius: $border-radius-default;
+  font-size: 1rem;
+  padding-bottom: $spacing-y;
+  padding-top: $spacing-y;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 1.25rem;
+    min-height: 20rem;
+  }
+}

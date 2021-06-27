@@ -1,0 +1,19 @@
+@import "../../scss/variables";
+
+.TextArea {
+  background: $white;
+  border: 1px solid $grey;
+  border-radius: $border-radius-default;
+  font-size: 1rem;
+  line-height: 1.625rem;
+  margin-bottom: 1.25rem;
+  min-height: 10rem;
+  padding: 1.25rem;
+  position: relative;
+  width: 100%;
+
+  @media (min-width: $breakpoint-md) {
+    min-height: 20rem;
+    font-size: 1.25rem;
+  }
+}
