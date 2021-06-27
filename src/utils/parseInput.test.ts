@@ -13,6 +13,43 @@ describe('parseInput', () => {
     expect(result).toEqual(expected);
   });
 
+  test('returns error if input is empty', async () => {
+    const result = () => parseInput(`      `);
+    const expected = new Error('Input is empty');
+    expect(result).toThrow(expected);
+  });
+
+  test('returns error if grid size is not valid', async () => {
+    const result = () =>
+      parseInput(`E A
+1 1 E
+RFRFRFRF`);
+    const expected = new Error('Grid size is not valid');
+    expect(result).toThrow(expected);
+  });
+
+  test('returns error if instructions are not valid', async () => {
+    const result = () =>
+      parseInput(`5 3
+1 1 E
+RFRFRFAAR`);
+    const expected = new Error(
+      'Instructions or starting position are not valid',
+    );
+    expect(result).toThrow(expected);
+  });
+
+  test('returns error if string position are not valid', async () => {
+    const result = () =>
+      parseInput(`5 3
+1 E
+RFRFRFAAR`);
+    const expected = new Error(
+      'Instructions or starting position are not valid',
+    );
+    expect(result).toThrow(expected);
+  });
+
   test('pair array items', async () => {
     const arr = [1, 2, 3, 4];
     const result = arr.reduce<number[][]>(pairArrItems, []);

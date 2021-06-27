@@ -15,7 +15,9 @@ export const parseInput = (
     .map((l) => l.trim())
     .filter((l) => l.length);
 
-  if (!lines.length) return null;
+  if (!lines.length) {
+    throw new Error('Input is empty');
+  }
 
   const [x, y] = (lines.shift() as string)
     .split(' ')
@@ -23,9 +25,26 @@ export const parseInput = (
 
   const gridSize: GridSize = { x, y };
 
+  if (isNaN(x) || isNaN(y)) {
+    throw new Error('Grid size is not valid');
+  }
+
   const robotInstructions: RobotInstructions = lines
     .reduce<string[][]>(pairArrItems, [])
     .map(mapCommands);
+
+  if (
+    !robotInstructions.length ||
+    !robotInstructions.every(
+      (r) =>
+        r.commands.every((c) => ['R', 'F', 'L'].includes(c)) &&
+        !isNaN(r.startingPos.x) &&
+        !isNaN(r.startingPos.y) &&
+        ['N', 'S', 'E', 'W'].includes(r.startingPos.orientation),
+    )
+  ) {
+    throw new Error('Instructions or starting position are not valid');
+  }
 
   return {
     gridSize,
