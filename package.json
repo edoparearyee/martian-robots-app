@@ -11,9 +11,11 @@
     "lint:fix": "yarn stylelint --fix && yarn eslint --fix && yarn prettier --write",
     "eslint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "stylelint": "stylelint --syntax scss \"src/**/*.{css,scss}\"",
-    "prettier": "prettier --config .prettierrc -l \"src/**/*.{ts,tsx,js,json,css,scss}\""
+    "prettier": "prettier --config .prettierrc -l \"src/**/*.{ts,tsx,js,json,css,scss}\"",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-grid-system": "^7.2.0",
@@ -27,7 +29,8 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "lint-staged": "^11.0.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.2.0",
     "node-sass": "^5.0.0",
     "prettier": "^2.3.2",
     "react-scripts": "4.0.3",
@@ -43,6 +46,11 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
